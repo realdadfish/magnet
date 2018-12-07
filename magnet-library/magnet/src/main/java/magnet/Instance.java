@@ -84,16 +84,16 @@ public @interface Instance {
     Class<?> type() default void.class;
 
     /**
-     * Multiple types to use when annotated instance gets registered in scope. Annotated
-     * class must actually implement all these types. Properties {@link #type()} and
-     * {@code #types()} are exclusively mutual and cannot be used together.
-     */
-    Class<?>[] types() default void.class;
-
-    /**
      * Classifier to use when annotated instance gets registered in scope.
      */
     String classifier() default Classifier.NONE;
+
+    /**
+     * Multiple types to use when annotated instance gets registered in scope. Annotated
+     * class must implement all those types. Properties {@link #type()} and
+     * {@code #types()} are exclusively mutual and cannot be used together.
+     */
+    Type[] types() default {};
 
     /**
      * Scoping rule to be applied when instance of annotated class gets created.
